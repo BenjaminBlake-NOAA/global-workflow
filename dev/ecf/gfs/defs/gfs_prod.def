@@ -2758,10 +2758,6 @@ suite gfs_v17_nco
                   edit FHR_LIST '384'
                   trigger ../../product/jgfs_atmos_product_f384==complete
               endfamily		//gempak
-              task jgfs_atmos_gempak_meta
-                trigger gempak==complete
-              task jgfs_atmos_gempak_ncdcupapgif
-                trigger gempak==complete
               family goesupp
                 task jgfs_atmos_goesupp_f000
                   edit FHR '000'
@@ -8666,10 +8662,6 @@ suite gfs_v17_nco
                   edit FHR_LIST '384'
                   trigger ../../product/jgfs_atmos_product_f384==complete
               endfamily		//gempak
-              task jgfs_atmos_gempak_meta
-                trigger gempak==complete
-              task jgfs_atmos_gempak_ncdcupapgif
-                trigger gempak==complete
               family goesupp
                 task jgfs_atmos_goesupp_f000
                   edit FHR '000'
@@ -14573,10 +14565,6 @@ suite gfs_v17_nco
                   edit FHR_LIST '384'
                   trigger ../../product/jgfs_atmos_product_f384==complete
               endfamily		//gempak
-              task jgfs_atmos_gempak_meta
-                trigger gempak==complete
-              task jgfs_atmos_gempak_ncdcupapgif
-                trigger gempak==complete
               family goesupp
                 task jgfs_atmos_goesupp_f000
                   edit FHR '000'
@@ -20480,10 +20468,6 @@ suite gfs_v17_nco
                   edit FHR_LIST '384'
                   trigger ../../product/jgfs_atmos_product_f384==complete
               endfamily		//gempak
-              task jgfs_atmos_gempak_meta
-                trigger gempak==complete
-              task jgfs_atmos_gempak_ncdcupapgif
-                trigger gempak==complete
               family goesupp
                 task jgfs_atmos_goesupp_f000
                   edit FHR '000'
