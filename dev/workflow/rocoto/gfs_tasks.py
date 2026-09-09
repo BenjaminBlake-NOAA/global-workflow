@@ -1807,7 +1807,7 @@ class GFSTasks(Tasks):
 
     def gempakpgrb2spec(self):
         deps = []
-        dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p5deg'}
+        dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p25deg'}
         deps.append(rocoto.add_dependency(dep_dict))
         dependencies = rocoto.create_dependency(dep=deps)
 
@@ -1849,7 +1849,7 @@ class GFSTasks(Tasks):
 
         return task
 
-    def npoess_pgrb2_0p5deg(self):
+    def npoess_pgrb2_0p25deg(self):
 
         deps = []
         dep_dict = {'type': 'task', 'name': f'{self.run}_atmanlprod'}
@@ -1859,7 +1859,7 @@ class GFSTasks(Tasks):
         dependencies = rocoto.create_dependency(dep=deps, dep_condition='and')
 
         resources = self.get_resource('npoess')
-        task_name = f'{self.run}_npoess_pgrb2_0p5deg'
+        task_name = f'{self.run}_npoess_pgrb2_0p25deg'
         task_dict = {'task_name': task_name,
                      'resources': resources,
                      'dependency': dependencies,
@@ -2298,11 +2298,9 @@ class GFSTasks(Tasks):
                 dep_dict = {'type': 'task', 'name': f'{self.run}_gempakmetancdc'}
                 deps.append(rocoto.add_dependency(dep_dict))
             elif self.run in ['gfs']:
-                dep_dict = {'type': 'task', 'name': f'{self.run}_gempakmeta'}
-                deps.append(rocoto.add_dependency(dep_dict))
                 if self.app_config.mode in ['cycled']:
                     if self.options['do_goes']:
-                        dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p5deg'}
+                        dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p25deg'}
                         deps.append(rocoto.add_dependency(dep_dict))
                         dep_dict = {'type': 'metatask', 'name': f'{self.run}_gempakgrb2spec'}
                         deps.append(rocoto.add_dependency(dep_dict))
@@ -2343,7 +2341,7 @@ class GFSTasks(Tasks):
         # Split up the tarball_types based on the run and configuration options
         # Define all possible tarball types
         if self.run == 'gfs':
-            tarball_types = ['gfsa', 'gfsb']
+            tarball_types = ['gfsa']
 
             # Add optional tarballs based on configuration
             if self._configs['arch_tars'].get('ARCH_GAUSSIAN', True):
@@ -2358,7 +2356,7 @@ class GFSTasks(Tasks):
                 tarball_types.append('chem')
 
             if self.options['do_ocean']:
-                tarball_types.extend(['ocean_6hravg', 'ocean_native', 'gfs_flux_1p00'])
+                tarball_types.extend(['ocean_6hravg', 'ocean_native'])
                 if self.options.get('do_jediocnvar', False) and self.app_config.mode == 'cycled':
                     tarball_types.append('gfsocean_analysis')
 
@@ -2597,7 +2595,7 @@ class GFSTasks(Tasks):
                 elif self.run in ['gfs']:
                     if self.app_config.mode in ['cycled']:
                         if self.options['do_goes']:
-                            dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p5deg'}
+                            dep_dict = {'type': 'task', 'name': f'{self.run}_npoess_pgrb2_0p25deg'}
                             deps.append(rocoto.add_dependency(dep_dict))
                             dep_dict = {'type': 'metatask', 'name': f'{self.run}_gempakgrb2spec'}
                             deps.append(rocoto.add_dependency(dep_dict))
